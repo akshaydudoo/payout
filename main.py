@@ -32,7 +32,7 @@ def encrypt_decrypt(payload: dict):
         # Decrypt the response payload
         decrypted_payload = decrypt(response.json()["payload"], config["encryption_key"])
 
-        return {"decrypted_payload": json.loads(decrypted_payload)}
+        return {"decrypted_payload": json.loads(decrypted_payload),"full responce" : response.json()}
     
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
